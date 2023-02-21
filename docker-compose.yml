@@ -6,7 +6,7 @@ services:
   # nginx
   nginx-service:
     image: nginx:stable-alpine
-    container_name: nginx-container_name
+    container_name: nginx-container
     ports:
       - "8080:80"
     volumes:
@@ -23,7 +23,7 @@ services:
     build:
       context: .
       dockerfile: ./php/Dockerfile
-    container_name: php74-container_name
+    container_name: php74-container 
     networks:
       - nginx-php74-mysql8-node
     ports:
@@ -42,7 +42,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
     environment:
-      MYSQL_USER: root
+      MYSQL_USER: user
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_PASSWORD: secret
     networks:
